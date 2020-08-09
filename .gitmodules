@@ -1,0 +1,3 @@
+[submodule "web/app/themes/belfast-theme"]
+	path = web/app/themes/belfast-theme
+	url = git@github.com:derweili/belfast-theme.git

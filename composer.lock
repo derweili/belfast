@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc849afd6db045cab0f924b32f28065b",
+    "content-hash": "2ec54a0a1b6ce891a9989365c028c877",
     "packages": [
         {
             "name": "composer/installers",
@@ -134,6 +134,175 @@
             "time": "2020-04-07T06:57:05+00:00"
         },
         {
+            "name": "derweili/belfast-theme",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./web/app/themes/belfast-theme",
+                "reference": "4cdc36ad346c4cd75c5b66d3b9df2866eb879dea"
+            },
+            "require": {
+                "horttcore/wp-assets": "*",
+                "horttcore/wp-customizer": "*",
+                "ralfhortt/wp-content-width": "*",
+                "ralfhortt/wp-image-sizes": "*",
+                "ralfhortt/wp-template-loader": "*",
+                "wpackio/enqueue": "^2.2"
+            },
+            "type": "wordpress-theme",
+            "autoload": {
+                "psr-4": {
+                    "Werbeagenten\\Aurora\\": "src/classes/"
+                },
+                "files": [
+                    "functions.custom.php",
+                    "functions.helpers.php"
+                ]
+            },
+            "scripts": {
+                "post-create-project-cmd": [
+                    "composer run-script replace-textdomain && composer run-script copy-env"
+                ],
+                "replace-textdomain": [
+                    "DIR=$(basename $PWD); LC_ALL=C find ./ -not \\( -path \".//vendor/*\" -o -path \".//node_modules/*\" -o -path \".//.git/*\" \\) -type f \\( -iname '*.js' -o -iname '*.php' -o -iname '*.css' \\) -exec sed -i '' -e \"s/TEXTDOMAIN/${DIR}/g\" {} \\;"
+                ],
+                "copy-env": [
+                    "cp .env.example .env"
+                ]
+            },
+            "description": "WordPress Starter Theme",
+            "transport-options": {
+                "symlink": true
+            }
+        },
+        {
+            "name": "filp/whoops",
+            "version": "2.7.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "5d5fe9bb3d656b514d455645b3addc5f7ba7714d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/5d5fe9bb3d656b514d455645b3addc5f7ba7714d",
+                "reference": "5d5fe9bb3d656b514d455645b3addc5f7ba7714d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9 || ^7.0",
+                "psr/log": "^1.0.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9 || ^1.0",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0",
+                "symfony/var-dumper": "^2.6 || ^3.0 || ^4.0 || ^5.0"
+            },
+            "suggest": {
+                "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
+                "whoops/soap": "Formats errors as SOAP responses"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Whoops\\": "src/Whoops/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php error handling for cool kids",
+            "homepage": "https://filp.github.io/whoops/",
+            "keywords": [
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "throwable",
+                "whoops"
+            ],
+            "time": "2020-06-14T09:00:00+00:00"
+        },
+        {
+            "name": "horttcore/wp-assets",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Horttcore/wp-assets.git",
+                "reference": "abe562d3a7a6b07eddea6833e45568042fa4268f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Horttcore/wp-assets/zipball/abe562d3a7a6b07eddea6833e45568042fa4268f",
+                "reference": "abe562d3a7a6b07eddea6833e45568042fa4268f",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RalfHortt\\Assets\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralf Hortt",
+                    "email": "me@horttcore.de"
+                }
+            ],
+            "description": "A helper package for working with the WordPress assets",
+            "time": "2020-03-27T08:06:12+00:00"
+        },
+        {
+            "name": "horttcore/wp-customizer",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Horttcore/wp-customizer.git",
+                "reference": "e71109aea56738151a028b7d25bddae488dde235"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Horttcore/wp-customizer/zipball/e71109aea56738151a028b7d25bddae488dde235",
+                "reference": "e71109aea56738151a028b7d25bddae488dde235",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Horttcore\\Customizer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralf Hortt",
+                    "email": "me@horttcore.de"
+                }
+            ],
+            "description": "A helper package for working with the WordPress Customizer",
+            "time": "2019-09-18T20:26:55+00:00"
+        },
+        {
             "name": "oscarotero/env",
             "version": "v1.2.0",
             "source": {
@@ -178,24 +347,24 @@
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.7.3",
+            "version": "1.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae"
+                "reference": "994ecccd8f3283ecf5ac33254543eb0ac946d525"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
-                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/994ecccd8f3283ecf5ac33254543eb0ac946d525",
+                "reference": "994ecccd8f3283ecf5ac33254543eb0ac946d525",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.5.9 || ^7.0 || ^8.0"
             },
             "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.3",
-                "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
+                "bamarni/composer-bin-plugin": "^1.4.1",
+                "phpunit/phpunit": "^4.8.35 || ^5.7.27 || ^6.5.6 || ^7.0 || ^8.0 || ^9.0"
             },
             "type": "library",
             "extra": {
@@ -229,7 +398,153 @@
                 "php",
                 "type"
             ],
-            "time": "2020-03-21T18:07:53+00:00"
+            "time": "2020-07-20T17:29:33+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2020-03-23T09:12:05+00:00"
+        },
+        {
+            "name": "ralfhortt/wp-content-width",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Horttcore/wp-content-width.git",
+                "reference": "d3b3f5a28935d04d8d66f020ccc1c52aa7e6cdbc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Horttcore/wp-content-width/zipball/d3b3f5a28935d04d8d66f020ccc1c52aa7e6cdbc",
+                "reference": "d3b3f5a28935d04d8d66f020ccc1c52aa7e6cdbc",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RalfHortt\\ContentWidth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ralf Hortt",
+                    "email": "me@horttcore.de"
+                }
+            ],
+            "description": "Setting the global WordPress variable `$content_width` in a single place for php and css",
+            "time": "2020-01-16T13:36:22+00:00"
+        },
+        {
+            "name": "ralfhortt/wp-image-sizes",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Horttcore/wp-image-sizes.git",
+                "reference": "05418c0477dec8ca41754999aa030517fb7e1ef5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Horttcore/wp-image-sizes/zipball/05418c0477dec8ca41754999aa030517fb7e1ef5",
+                "reference": "05418c0477dec8ca41754999aa030517fb7e1ef5",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RalfHortt\\ImageSizes\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ralf Hortt",
+                    "email": "me@horttcore.de"
+                }
+            ],
+            "description": "A helper class to register image sizes",
+            "time": "2019-05-31T20:45:23+00:00"
+        },
+        {
+            "name": "ralfhortt/wp-template-loader",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Horttcore/wp-template-loader.git",
+                "reference": "e0a8c24b10eb0cb0eb64d2c17c49ba7618862db2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Horttcore/wp-template-loader/zipball/e0a8c24b10eb0cb0eb64d2c17c49ba7618862db2",
+                "reference": "e0a8c24b10eb0cb0eb64d2c17c49ba7618862db2",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RalfHortt\\TemplateLoader\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ralf Hortt",
+                    "email": "me@horttcore.de"
+                }
+            ],
+            "description": "A helper class to load template files from another location",
+            "time": "2019-06-04T20:00:05+00:00"
         },
         {
             "name": "roots/wordpress",
@@ -241,7 +556,8 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.4.1"
+                "url": "https://api.github.com/repos/WordPress/WordPress/zipball/5.4.1",
+                "reference": "5.4.1"
             },
             "require": {
                 "php": ">=5.3.2",
@@ -424,16 +740,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.15.0",
+            "version": "v1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14"
+                "reference": "1c302646f6efc070cd46856e600e5e0684d6b454"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
-                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/1c302646f6efc070cd46856e600e5e0684d6b454",
+                "reference": "1c302646f6efc070cd46856e600e5e0684d6b454",
                 "shasum": ""
             },
             "require": {
@@ -445,7 +761,11 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15-dev"
+                    "dev-master": "1.18-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
                 }
             },
             "autoload": {
@@ -478,32 +798,32 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2020-02-27T09:26:54+00:00"
+            "time": "2020-07-14T12:35:20+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v4.1.4",
+            "version": "v4.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "feb6dad5ae24b1380827aee1629b730080fde500"
+                "reference": "572af79d913627a9d70374d27a6f5d689a35de32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/feb6dad5ae24b1380827aee1629b730080fde500",
-                "reference": "feb6dad5ae24b1380827aee1629b730080fde500",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/572af79d913627a9d70374d27a6f5d689a35de32",
+                "reference": "572af79d913627a9d70374d27a6f5d689a35de32",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9 || ^7.0",
-                "phpoption/phpoption": "^1.7.2",
-                "symfony/polyfill-ctype": "^1.9"
+                "php": "^5.5.9 || ^7.0 || ^8.0",
+                "phpoption/phpoption": "^1.7.3",
+                "symfony/polyfill-ctype": "^1.17"
             },
             "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.3",
+                "bamarni/composer-bin-plugin": "^1.4.1",
                 "ext-filter": "*",
                 "ext-pcre": "*",
-                "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
+                "phpunit/phpunit": "^4.8.35 || ^5.7.27 || ^6.5.6 || ^7.0"
             },
             "suggest": {
                 "ext-filter": "Required to use the boolean validator.",
@@ -542,7 +862,86 @@
                 "env",
                 "environment"
             ],
-            "time": "2020-04-12T15:20:09+00:00"
+            "time": "2020-07-14T19:22:52+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/disable-comments",
+            "version": "1.10.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/disable-comments/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/disable-comments.zip?timestamp=1596006377"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/disable-comments/"
+        },
+        {
+            "name": "wpackagist-plugin/instagram-feed",
+            "version": "2.4.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/instagram-feed/",
+                "reference": "tags/2.4.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/instagram-feed.2.4.5.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/instagram-feed/"
+        },
+        {
+            "name": "wpackio/enqueue",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swashata/wpackio-enqueue.git",
+                "reference": "596fb1d6af97b96906058237165f3fe161ffa685"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swashata/wpackio-enqueue/zipball/596fb1d6af97b96906058237165f3fe161ffa685",
+                "reference": "596fb1d6af97b96906058237165f3fe161ffa685",
+                "shasum": ""
+            },
+            "require-dev": {
+                "brain/monkey": "^2.2.0",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+                "giacocorsiglia/wordpress-stubs": "^4.9.5",
+                "pcov/clobber": "^2.0",
+                "phpcompatibility/phpcompatibility-wp": "^2.1.0",
+                "phpunit/phpunit": "^7.3.0",
+                "spatie/phpunit-snapshot-assertions": "^1.3.1",
+                "wp-coding-standards/wpcs": "^2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WPackio\\": "inc"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Swashata Ghosh",
+                    "email": "swashata4u@gmail.com"
+                }
+            ],
+            "description": "API to enqueue assets generated by @wpackio/scripts into your WordPress plugin or theme.",
+            "time": "2020-06-22T03:45:46+00:00"
         }
     ],
     "packages-dev": [
@@ -552,12 +951,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "81541a731da2f245a08666de73169cb5da7ac573"
+                "reference": "2ef1995958f6434d5d408d7baa6612c7d239cc54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/81541a731da2f245a08666de73169cb5da7ac573",
-                "reference": "81541a731da2f245a08666de73169cb5da7ac573",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/2ef1995958f6434d5d408d7baa6612c7d239cc54",
+                "reference": "2ef1995958f6434d5d408d7baa6612c7d239cc54",
                 "shasum": ""
             },
             "conflict": {
@@ -566,11 +965,14 @@
                 "alterphp/easyadmin-extension-bundle": ">=1.2,<1.2.11|>=1.3,<1.3.1",
                 "amphp/artax": "<1.0.6|>=2,<2.0.6",
                 "amphp/http": "<1.0.1",
+                "amphp/http-client": ">=4,<4.4",
                 "api-platform/core": ">=2.2,<2.2.10|>=2.3,<2.3.6",
                 "asymmetricrypt/asymmetricrypt": ">=0,<9.9.99",
                 "aws/aws-sdk-php": ">=3,<3.2.1",
                 "bagisto/bagisto": "<0.1.5",
-                "bolt/bolt": "<3.6.10",
+                "barrelstrength/sprout-base-email": "<1.2.7",
+                "barrelstrength/sprout-forms": "<3.9",
+                "bolt/bolt": "<3.7.1",
                 "brightlocal/phpwhois": "<=4.2.5",
                 "buddypress/buddypress": "<5.1.2",
                 "bugsnag/bugsnag-laravel": ">=2,<2.0.2",
@@ -596,10 +998,10 @@
                 "doctrine/mongodb-odm": ">=1,<1.0.2",
                 "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1",
-                "dolibarr/dolibarr": "<=10.0.6",
+                "dolibarr/dolibarr": "<11.0.4",
                 "dompdf/dompdf": ">=0.6,<0.6.2",
-                "drupal/core": ">=7,<7.69|>=8,<8.7.12|>=8.8,<8.8.4",
-                "drupal/drupal": ">=7,<7.69|>=8,<8.7.12|>=8.8,<8.8.4",
+                "drupal/core": ">=7,<7.72|>=8,<8.8.8|>=8.9,<8.9.1|>=9,<9.0.1",
+                "drupal/drupal": ">=7,<7.72|>=8,<8.8.8|>=8.9,<8.9.1|>=9,<9.0.1",
                 "endroid/qr-code-bundle": "<3.4.2",
                 "enshrined/svg-sanitize": "<0.13.1",
                 "erusev/parsedown": "<1.7.2",
@@ -609,8 +1011,9 @@
                 "ezsystems/ezplatform": ">=1.7,<1.7.9.1|>=1.13,<1.13.5.1|>=2.5,<2.5.4",
                 "ezsystems/ezplatform-admin-ui": ">=1.3,<1.3.5|>=1.4,<1.4.6",
                 "ezsystems/ezplatform-admin-ui-assets": ">=4,<4.2",
+                "ezsystems/ezplatform-kernel": ">=1,<1.0.2.1",
                 "ezsystems/ezplatform-user": ">=1,<1.0.1",
-                "ezsystems/ezpublish-kernel": ">=5.3,<5.3.12.1|>=5.4,<5.4.14.1|>=6,<6.7.9.1|>=6.8,<6.13.6.2|>=7,<7.2.4.1|>=7.3,<7.3.2.1|>=7.5,<7.5.6.2",
+                "ezsystems/ezpublish-kernel": ">=5.3,<5.3.12.1|>=5.4,<5.4.14.2|>=6,<6.7.9.1|>=6.8,<6.13.6.3|>=7,<7.2.4.1|>=7.3,<7.3.2.1|>=7.5,<7.5.7.1",
                 "ezsystems/ezpublish-legacy": ">=5.3,<5.3.12.6|>=5.4,<5.4.14.1|>=2011,<2017.12.7.2|>=2018.6,<2018.6.1.4|>=2018.9,<2018.9.1.3|>=2019.3,<2019.3.4.2",
                 "ezsystems/repository-forms": ">=2.3,<2.3.2.1",
                 "ezyang/htmlpurifier": "<4.1.1",
@@ -620,8 +1023,10 @@
                 "friendsofsymfony/oauth2-php": "<1.3",
                 "friendsofsymfony/rest-bundle": ">=1.2,<1.2.2",
                 "friendsofsymfony/user-bundle": ">=1.2,<1.3.5",
+                "friendsoftypo3/mediace": ">=7.6.2,<7.6.5",
                 "fuel/core": "<1.8.1",
                 "getgrav/grav": "<1.7-beta.8",
+                "gos/web-socket-bundle": "<1.10.4|>=2,<2.6.1|>=3,<3.3",
                 "gree/jose": "<=2.2",
                 "gregwar/rst": "<1.0.3",
                 "guzzlehttp/guzzle": ">=4-rc.2,<4.2.4|>=5,<5.3.1|>=6,<6.2.1",
@@ -635,6 +1040,7 @@
                 "joomla/session": "<1.3.1",
                 "jsmitty12/phpwhois": "<5.1",
                 "kazist/phpwhois": "<=4.2.6",
+                "kitodo/presentation": "<3.1.2",
                 "kreait/firebase-php": ">=3.2,<3.8.1",
                 "la-haute-societe/tcpdf": "<6.2.22",
                 "laravel/framework": ">=4,<4.0.99|>=4.1,<=4.1.31|>=4.2,<=4.2.22|>=5,<=5.0.35|>=5.1,<=5.1.46|>=5.2,<=5.2.45|>=5.3,<=5.3.31|>=5.4,<=5.4.36|>=5.5,<5.5.42|>=5.6,<5.6.30|>=7,<7.1.2",
@@ -645,8 +1051,16 @@
                 "magento/magento1ce": "<1.9.4.3",
                 "magento/magento1ee": ">=1,<1.14.4.3",
                 "magento/product-community-edition": ">=2,<2.2.10|>=2.3,<2.3.2-p.2",
+                "marcwillmann/turn": "<0.3.3",
+                "mittwald/typo3_forum": "<1.2.1",
                 "monolog/monolog": ">=1.8,<1.12",
                 "namshi/jose": "<2.2",
+                "nystudio107/craft-seomatic": "<3.3",
+                "nzo/url-encryptor-bundle": ">=4,<4.3.2|>=5,<5.0.1",
+                "october/backend": ">=1.0.319,<1.0.467",
+                "october/cms": ">=1.0.319,<1.0.466",
+                "october/october": ">=1.0.319,<1.0.466",
+                "october/rain": ">=1.0.319,<1.0.468",
                 "onelogin/php-saml": "<2.10.4",
                 "oneup/uploader-bundle": "<1.9.3|>=2,<2.1.5",
                 "openid/php-openid": "<2.3",
@@ -658,7 +1072,8 @@
                 "paypal/merchant-sdk-php": "<3.12",
                 "pear/archive_tar": "<1.4.4",
                 "phpfastcache/phpfastcache": ">=5,<5.0.13",
-                "phpmailer/phpmailer": ">=5,<5.2.27|>=6,<6.0.6",
+                "phpmailer/phpmailer": "<6.1.6",
+                "phpmussel/phpmussel": ">=1,<1.6",
                 "phpmyadmin/phpmyadmin": "<4.9.2",
                 "phpoffice/phpexcel": "<1.8.2",
                 "phpoffice/phpspreadsheet": "<1.8",
@@ -673,6 +1088,7 @@
                 "propel/propel": ">=2-alpha.1,<=2-alpha.7",
                 "propel/propel1": ">=1,<=1.7.1",
                 "pusher/pusher-php-server": "<2.2.1",
+                "rainlab/debugbar-plugin": "<3.1",
                 "robrichards/xmlseclibs": "<3.0.4",
                 "sabre/dav": ">=1.6,<1.6.99|>=1.7,<1.7.11|>=1.8,<1.8.9",
                 "scheb/two-factor-bundle": ">=0,<3.26|>=4,<4.11",
@@ -684,8 +1100,8 @@
                 "silverstripe/cms": "<4.3.6|>=4.4,<4.4.4",
                 "silverstripe/comments": ">=1.3,<1.9.99|>=2,<2.9.99|>=3,<3.1.1",
                 "silverstripe/forum": "<=0.6.1|>=0.7,<=0.7.3",
-                "silverstripe/framework": "<4.4.5|>=4.5,<4.5.2",
-                "silverstripe/graphql": ">=2,<2.0.5|>=3,<3.1.2",
+                "silverstripe/framework": "<4.4.7|>=4.5,<4.5.4",
+                "silverstripe/graphql": ">=2,<2.0.5|>=3,<3.1.2|>=3.2,<3.2.4",
                 "silverstripe/registry": ">=2.1,<2.1.2|>=2.2,<2.2.1",
                 "silverstripe/restfulserver": ">=1,<1.0.9|>=2,<2.0.4",
                 "silverstripe/subsites": ">=2,<2.1.1",
@@ -701,9 +1117,10 @@
                 "socalnick/scn-social-auth": "<1.15.2",
                 "spoonity/tcpdf": "<6.2.22",
                 "squizlabs/php_codesniffer": ">=1,<2.8.1|>=3,<3.0.1",
-                "ssddanbrown/bookstack": "<0.25.3",
+                "ssddanbrown/bookstack": "<0.29.2",
                 "stormpath/sdk": ">=0,<9.9.99",
                 "studio-42/elfinder": "<2.1.49",
+                "sulu/sulu": "<1.6.34|>=2,<2.0.10|>=2.1,<2.1.1",
                 "swiftmailer/swiftmailer": ">=4,<5.4.5",
                 "sylius/admin-bundle": ">=1,<1.0.17|>=1.1,<1.1.9|>=1.2,<1.2.2",
                 "sylius/grid": ">=1,<1.1.19|>=1.2,<1.2.18|>=1.3,<1.3.13|>=1.4,<1.4.5|>=1.5,<1.5.1",
@@ -739,6 +1156,7 @@
                 "symfony/var-exporter": ">=4.2,<4.2.12|>=4.3,<4.3.8",
                 "symfony/web-profiler-bundle": ">=2,<2.3.19|>=2.4,<2.4.9|>=2.5,<2.5.4",
                 "symfony/yaml": ">=2,<2.0.22|>=2.1,<2.1.7",
+                "t3g/svg-sanitizer": "<1.0.3",
                 "tecnickcom/tcpdf": "<6.2.22",
                 "thelia/backoffice-default-template": ">=2.1,<2.1.2",
                 "thelia/thelia": ">=2.1-beta.1,<2.1.3",
@@ -746,8 +1164,8 @@
                 "titon/framework": ">=0,<9.9.99",
                 "truckersmp/phpwhois": "<=4.3.1",
                 "twig/twig": "<1.38|>=2,<2.7",
-                "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.32|>=8,<8.7.30|>=9,<9.5.12|>=10,<10.2.1",
-                "typo3/cms-core": ">=8,<8.7.30|>=9,<9.5.12|>=10,<10.2.1",
+                "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.32|>=8,<8.7.30|>=9,<9.5.20|>=10,<10.4.6",
+                "typo3/cms-core": ">=8,<8.7.30|>=9,<9.5.20|>=10,<10.4.6",
                 "typo3/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.10|>=3.1,<3.1.7|>=3.2,<3.2.7|>=3.3,<3.3.5",
                 "typo3/neos": ">=1.1,<1.1.3|>=1.2,<1.2.13|>=2,<2.0.4",
                 "typo3/phar-stream-wrapper": ">=1,<2.1.1|>=3,<3.1.1",
@@ -810,7 +1228,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2020-04-23T00:01:30+00:00"
+            "time": "2020-08-05T22:02:01+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -867,6 +1285,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "derweili/belfast-theme": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

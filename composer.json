@@ -28,6 +28,13 @@
       "type": "composer",
       "url": "https://wpackagist.org",
       "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+    },
+    {
+      "type": "path",
+      "url": "./web/app/themes/belfast-theme",
+      "options": {
+        "symlink": true
+      }
     }
   ],
   "require": {
@@ -37,7 +44,11 @@
     "oscarotero/env": "^1.2.0",
     "roots/wordpress": "5.4.1",
     "roots/wp-config": "1.0.0",
-    "roots/wp-password-bcrypt": "1.0.0"
+    "roots/wp-password-bcrypt": "1.0.0",
+    "derweili/belfast-theme": "dev-master",
+    "wpackagist-plugin/disable-comments": "^1.10",
+    "filp/whoops": "^2.7",
+    "wpackagist-plugin/instagram-feed": "^2.4"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.5.4",
