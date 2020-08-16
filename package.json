@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "theme-dev": "cd web/app/themes/belfast-theme/ && npm start",
-    "start": "concurrently \"npm run theme-dev\" "
+    "theme-dev": "cd web/app/themes/belfast-theme/ && npm run-script start",
+    "theme-build": "cd web/app/themes/belfast-theme/ && npm run-script build",
+    "start": "concurrently \"npm run theme-dev\" ",
+    "build": "concurrently \"npm run theme-build\" "
   },
   "author": "",
   "license": "ISC",
